@@ -1,8 +1,4 @@
 
-
-# Create your models here.
-# api/models.py
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -68,35 +64,6 @@ class Message(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-# class Expert(models.Model):
-#     name = models.CharField(max_length=100)
-#     specialty = models.CharField(max_length=100, default="General") 
-
-#     def __str__(self):
-#         return self.name
-
-# class ChatSession(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="chat_sessions")
-#     expert = models.ForeignKey(Expert, on_delete=models.CASCADE, related_name="chat_sessions")
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     is_active = models.BooleanField(default=True)
-    
-#     def __str__(self):
-#         return f"Chat with {self.expert.name} by {self.user.username}"
-
-# class Message(models.Model):
-#     session = models.ForeignKey(ChatSession, on_delete=models.CASCADE, related_name="messages")
-#     sender = models.CharField(max_length=20, choices=[("user", "User"), ("expert", "Expert")])
-#     text = models.TextField()
-#     timestamp = models.DateTimeField(auto_now_add=True)
-#     is_read = models.BooleanField(default=False)
-    
-#     class Meta:
-#         ordering = ['timestamp']
-    
-#     def __str__(self):
-#         return f"{self.sender}: {self.text[:50]}..."
-    
 
 
 

@@ -131,3 +131,4 @@ class ChatConsumer(AsyncWebsocketConsumer):
             text=text
         )
         return message.id
+    

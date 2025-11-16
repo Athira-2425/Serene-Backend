@@ -46,7 +46,7 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Must include 'username' and 'password'.")
         
         return data
-# --- App Data Serializers ---
+
 
 class SleepStorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -62,7 +62,7 @@ class MoodEntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = MoodEntry
         fields = ('id', 'user', 'mood_rating', 'quote', 'timestamp')
-        read_only_fields = ('user',) # User will be set automatically from the request
+        read_only_fields = ('user',) 
 
 class JournalEntrySerializer(serializers.ModelSerializer):
     class Meta:
@@ -88,23 +88,3 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         fields = "__all__"
 
-# class ExpertSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Expert
-#         fields = "__all__"
-
-# class MessageSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Message
-#         fields = ["id", "session", "sender", "text", "timestamp", "is_read"]
-#         read_only_fields = ["id", "timestamp"]
-
-# class ChatSessionSerializer(serializers.ModelSerializer):
-#     expert_name = serializers.CharField(source='expert.name', read_only=True)
-#     expert_specialty = serializers.CharField(source='expert.specialty', read_only=True)
-#     messages = MessageSerializer(many=True, read_only=True)
-    
-#     class Meta:
-#         model = ChatSession
-#         fields = ["id", "user", "expert", "expert_name", "expert_specialty", "created_at", "is_active", "messages"]
-#         read_only_fields = ["user", "created_at"]

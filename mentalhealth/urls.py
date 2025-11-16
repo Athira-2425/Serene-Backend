@@ -33,27 +33,9 @@ router.register(r'meditations', MeditationViewSet, basename='meditation')
 router.register(r'moods', MoodEntryViewSet, basename='moodentry')
 router.register(r'journal', JournalEntryViewSet, basename='journalentry')
 router.register(r'gratitude', GratitudeViewSet, basename='gratitude')
-# router.register(r'experts',ExpertViewSet, basename='expert')
-# router.register(r'chat-sessions', ChatSessionViewSet, basename='chatsession')
-# router.register(r'messages', MessageViewSet, basename='message')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # All API routes from router
-
-    # Authentication
-    # path('api/auth/register', RegisterAPI.as_view()),
-    # path('api/auth/login', LoginAPI.as_view(), name='knox_login'),
-    # path('api/auth/logout', knox_views.LogoutView.as_view(), name='knox_logout'),
-    # path('api/auth/logoutall', knox_views.LogoutAllView.as_view(), name='knox_logoutall'),
-    
-    
-    # path("auth/login/", CustomLoginView.as_view(), name="knox_login"),
-    # path("auth/logout/", knox_views.LogoutView.as_view(), name="knox_logout"),
-    # path("auth/logoutall/", knox_views.LogoutAllView.as_view(), name="knox_logoutall"),
-    
-    # path("auth/user/", UserAPI.as_view(), name="knox_user"),  # 👈 added
     path('api/', include(router.urls)),
     path('api/auth/', include('knox.urls')),
     path('auth/register/', RegisterAPI.as_view(), name='register'),
@@ -62,8 +44,7 @@ urlpatterns = [
     path('auth/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
     path('auth/user/', UserAPI.as_view(), name='user'),
     path("messages/", MessageListCreate.as_view(), name="messages"),
-    # Progress tracker
-    # path('progress/', ProgressViewSet.as_view(), name="progress-detail"),
+
 ]
 
 
